@@ -55,6 +55,9 @@ cache_list_name = None
 # Global variable for the location of the token to use for reading / writing
 token_location = None
 
+# Use the geo ip service on the WLCG Web Proxy Auto Discovery machines
+geo_ip_sites = ["wlcg-wpad.cern.ch", "wlcg-wpad.fnal.gov"]
+
 # Global variable to print names of cache lists
 print_cache_list_names = False
 
@@ -726,8 +729,6 @@ def get_stashservers_caches(responselines_b):
 def get_best_stashcache():
     global nearest_cache_list
 
-    # Use the geo ip service on the WLCG Web Proxy Auto Discovery machines
-    geo_ip_sites = ["wlcg-wpad.cern.ch", "wlcg-wpad.fnal.gov"]
     
     # Headers for the HTTP request
     headers = {'Cache-control': 'max-age=0', 'User-Agent': user_agent }
